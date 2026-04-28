@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1ABF9B0DA7DA0851D4670D3B /* ExchangeFundingRateSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B5F83D9C8C0FADFB42165E /* ExchangeFundingRateSources.swift */; };
+		2CEB187D31CBB04FDE945CCB /* FundingRateSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94906EE96954B904E7AEF2A9 /* FundingRateSnapshot.swift */; };
+		51178DB0D19B41444F0F3E99 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663C7FBB0C31C1B35DC7235 /* HTTPClient.swift */; };
+		5499CE51571B992738B8745A /* TaskTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D74A3D3062A41FCE79C98 /* TaskTimeout.swift */; };
+		57413B89765CDAD505727517 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FC22BA8C3666C2950FF44B /* Cocoa.framework */; };
+		59E60AE862CDA2DDDD99A821 /* FundingRateMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6926295311C34D6F26522 /* FundingRateMenuView.swift */; };
+		72FB763AD748AD14539FDDCB /* FundingRateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887FE631C02FF51A4AE5466C /* FundingRateFormatting.swift */; };
+		7420ABF40CE23FE0E0E9ED41 /* FileFundingRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E8EF41574573667A90A13 /* FileFundingRateCache.swift */; };
+		7E269A5D7B1A7FF6AC1AECFE /* FundingRateMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB67981D41F3129AF4C0CFC /* FundingRateMenuViewModel.swift */; };
+		7E7B39623FEE5B79F845822A /* LoadCachedFundingRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB29F53AE5CC8C2D33BF75E /* LoadCachedFundingRatesUseCase.swift */; };
+		8AE6F1A12E0A4D278F010001 /* RefreshBitcoinETFNetFlowUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020001 /* RefreshBitcoinETFNetFlowUseCase.swift */; };
+		8AE6F1A12E0A4D278F010002 /* RefreshCryptoFearGreedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020002 /* RefreshCryptoFearGreedUseCase.swift */; };
+		8AE6F1A12E0A4D278F010003 /* RefreshBitcoinRSIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */; };
+		8AE6F1A12E0A4D278F010004 /* FundingRateWidgetDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020004 /* FundingRateWidgetDependencies.swift */; };
+		8AE6F1A12E0A4D278F010005 /* RefreshBitcoinMVRVZScoreUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */; };
+		DD705A74C4B129A4C203BF80 /* FundingRateWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DED7BC7D386B1BB2FB2D07 /* FundingRateWidgetApp.swift */; };
+		E51333369AB2DC1E12F611B7 /* FundingRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D94E8C3652F16870C3A91 /* FundingRateCache.swift */; };
+		EE47091E4E590E16A4C15C2F /* FundingRateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1817EFA6A142E67E48749C /* FundingRateSource.swift */; };
+		F02A785F9C44E0B4FE55AECD /* RefreshFundingRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AA8C1BF65867FCE1EEAEFA /* RefreshFundingRatesUseCase.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		038852F10C619A97359A5433 /* FundingRateSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateSource.swift; path = Sources/Domain/Repositories/FundingRateSource.swift; sourceTree = "<group>"; };
+		0D69FE24DCD5EEFD1FAD230C /* FundingRateMenuView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateMenuView.swift; path = Sources/Presentation/Views/FundingRateMenuView.swift; sourceTree = "<group>"; };
+		2E48EA3AB52C4EAA912F7034 /* FundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateCache.swift; path = Sources/Domain/Repositories/FundingRateCache.swift; sourceTree = "<group>"; };
+		316D74A3D3062A41FCE79C98 /* TaskTimeout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TaskTimeout.swift; sourceTree = "<group>"; };
+		39B5F83D9C8C0FADFB42165E /* ExchangeFundingRateSources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExchangeFundingRateSources.swift; sourceTree = "<group>"; };
+		3CB67981D41F3129AF4C0CFC /* FundingRateMenuViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateMenuViewModel.swift; sourceTree = "<group>"; };
+		3E5DB480D083ADD912819E64 /* LoadCachedFundingRatesUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadCachedFundingRatesUseCase.swift; path = Sources/Application/UseCases/LoadCachedFundingRatesUseCase.swift; sourceTree = "<group>"; };
+		4408934EFA649CC8CF2B377F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Info.plist; sourceTree = "<group>"; };
+		4F5234E9A675C87E172B8BD8 /* RefreshFundingRatesUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RefreshFundingRatesUseCase.swift; path = Sources/Application/UseCases/RefreshFundingRatesUseCase.swift; sourceTree = "<group>"; };
+		53FC22BA8C3666C2950FF44B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		6663C7FBB0C31C1B35DC7235 /* HTTPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		6A2768B4B74947B01FCC4323 /* ExchangeFundingRateSources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExchangeFundingRateSources.swift; path = Sources/Infrastructure/Providers/ExchangeFundingRateSources.swift; sourceTree = "<group>"; };
+		786D94E8C3652F16870C3A91 /* FundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateCache.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020001 /* RefreshBitcoinETFNetFlowUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinETFNetFlowUseCase.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020002 /* RefreshCryptoFearGreedUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshCryptoFearGreedUseCase.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinRSIUseCase.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020004 /* FundingRateWidgetDependencies.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateWidgetDependencies.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinMVRVZScoreUseCase.swift; sourceTree = "<group>"; };
+		82F31ADF1FA5553CCD92D64E /* FundingRateWidgetApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateWidgetApp.swift; path = Sources/Presentation/App/FundingRateWidgetApp.swift; sourceTree = "<group>"; };
+		84C59436C6DB9CF80E8133CC /* FileFundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileFundingRateCache.swift; path = Sources/Infrastructure/Persistence/FileFundingRateCache.swift; sourceTree = "<group>"; };
+		882E8EF41574573667A90A13 /* FileFundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileFundingRateCache.swift; sourceTree = "<group>"; };
+		887FE631C02FF51A4AE5466C /* FundingRateFormatting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateFormatting.swift; sourceTree = "<group>"; };
+		94906EE96954B904E7AEF2A9 /* FundingRateSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateSnapshot.swift; sourceTree = "<group>"; };
+		95C7FFFAF008EDC77D948D1E /* FundingRateSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateSnapshot.swift; path = Sources/Domain/Entities/FundingRateSnapshot.swift; sourceTree = "<group>"; };
+		A8DED7BC7D386B1BB2FB2D07 /* FundingRateWidgetApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateWidgetApp.swift; sourceTree = "<group>"; };
+		B7C6F8987B219AF59B2229C6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		C0D6926295311C34D6F26522 /* FundingRateMenuView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateMenuView.swift; sourceTree = "<group>"; };
+		C32E00DAAC8842629FB80493 /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; path = .gitignore; sourceTree = "<group>"; };
+		C94A065975869BF5D540B22F /* spec.md */ = {isa = PBXFileReference; includeInIndex = 1; path = spec.md; sourceTree = "<group>"; };
+		CCEF97BF08F4151E42A87436 /* FundingRateFormatting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateFormatting.swift; path = Sources/Shared/Formatting/FundingRateFormatting.swift; sourceTree = "<group>"; };
+		CD1817EFA6A142E67E48749C /* FundingRateSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateSource.swift; sourceTree = "<group>"; };
+		CD96942FBE04C58C6E3DE4BA /* TaskTimeout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskTimeout.swift; path = Sources/Shared/Concurrency/TaskTimeout.swift; sourceTree = "<group>"; };
+		EADB59FDB2E954801B38F46E /* Package.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		EE9AD46013A7C3CCE5C40A94 /* FundingRateWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FundingRateWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0DCDF7557CF7F2A73E9985A /* FundingRateMenuViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateMenuViewModel.swift; path = Sources/Application/ViewModels/FundingRateMenuViewModel.swift; sourceTree = "<group>"; };
+		F8AA8C1BF65867FCE1EEAEFA /* RefreshFundingRatesUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshFundingRatesUseCase.swift; sourceTree = "<group>"; };
+		F8B5BEDAF938934DB2C1FC9A /* HTTPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPClient.swift; path = Sources/Infrastructure/Networking/HTTPClient.swift; sourceTree = "<group>"; };
+		FFB29F53AE5CC8C2D33BF75E /* LoadCachedFundingRatesUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoadCachedFundingRatesUseCase.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C50BBBC42A45E3FA4D3F1C88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57413B89765CDAD505727517 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0037D6E12FDAF311DE730BEF /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				84C59436C6DB9CF80E8133CC /* FileFundingRateCache.swift */,
+			);
+			name = Persistence;
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		123C0FDAC98B1A267044CDD5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2E48EA3AB52C4EAA912F7034 /* FundingRateCache.swift */,
+				038852F10C619A97359A5433 /* FundingRateSource.swift */,
+			);
+			name = Repositories;
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		13D5DE4E89D3B71731B60AA5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A1CE6A9293568FCF794E0119 /* App */,
+				DAA6174873E2518E87697CF4 /* Views */,
+			);
+			name = Presentation;
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		18071233367EBEFA07A8BBD7 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				6A2768B4B74947B01FCC4323 /* ExchangeFundingRateSources.swift */,
+			);
+			name = Providers;
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		1D92BD4444082820B893AE9C /* Formatting */ = {
+			isa = PBXGroup;
+			children = (
+				CCEF97BF08F4151E42A87436 /* FundingRateFormatting.swift */,
+			);
+			name = Formatting;
+			path = Formatting;
+			sourceTree = "<group>";
+		};
+		1F44526E6B582D3AA7C724F3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				68ABAA064619E9FCBAA82E88 /* UseCases */,
+				C30B3AD47377ADDFADCF26B5 /* ViewModels */,
+			);
+			name = Application;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2AB9436C41E75FA723606C0F = {
+			isa = PBXGroup;
+			children = (
+				8A17C51344C8158977B0961F /* Products */,
+				3E990186063622F34A57A611 /* Frameworks */,
+				DC01599794606BCF15D16BC9 /* App */,
+				B7C6F8987B219AF59B2229C6 /* README.md */,
+				C94A065975869BF5D540B22F /* spec.md */,
+				EADB59FDB2E954801B38F46E /* Package.swift */,
+				C32E00DAAC8842629FB80493 /* .gitignore */,
+				940A7823C82E13B516C6B8A1 /* Sources */,
+			);
+			sourceTree = "<group>";
+		};
+		3E990186063622F34A57A611 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80CCD8513EB86C0530626C34 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BF1F2707094D194D1716017 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				786D94E8C3652F16870C3A91 /* FundingRateCache.swift */,
+				CD1817EFA6A142E67E48749C /* FundingRateSource.swift */,
+			);
+			name = Repositories;
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5B400829A21710531D6D6D61 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3E5DB480D083ADD912819E64 /* LoadCachedFundingRatesUseCase.swift */,
+				4F5234E9A675C87E172B8BD8 /* RefreshFundingRatesUseCase.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		68ABAA064619E9FCBAA82E88 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FFB29F53AE5CC8C2D33BF75E /* LoadCachedFundingRatesUseCase.swift */,
+				F8AA8C1BF65867FCE1EEAEFA /* RefreshFundingRatesUseCase.swift */,
+				8AE6F1A12E0A4D278F020001 /* RefreshBitcoinETFNetFlowUseCase.swift */,
+				8AE6F1A12E0A4D278F020002 /* RefreshCryptoFearGreedUseCase.swift */,
+				8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */,
+				8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */,
+			);
+			name = UseCases;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		69DCA7BCF1927FB8890F16A5 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				CD96942FBE04C58C6E3DE4BA /* TaskTimeout.swift */,
+			);
+			name = Concurrency;
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		80CCD8513EB86C0530626C34 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				53FC22BA8C3666C2950FF44B /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		878D5B7EC1D02FD6B7527B42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D69FE24DCD5EEFD1FAD230C /* FundingRateMenuView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A17C51344C8158977B0961F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE9AD46013A7C3CCE5C40A94 /* FundingRateWidget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E474281FD3BEFB87544D77E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F9E8872B780C32495131F871 /* Concurrency */,
+				F990E7A2B81DB537D8266F75 /* Formatting */,
+			);
+			name = Shared;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		940A7823C82E13B516C6B8A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1F44526E6B582D3AA7C724F3 /* Application */,
+				E2B02195118FE32B570BAC7C /* Domain */,
+				BDA8DA685269FFC14C901262 /* Infrastructure */,
+				13D5DE4E89D3B71731B60AA5 /* Presentation */,
+				8E474281FD3BEFB87544D77E /* Shared */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A1CE6A9293568FCF794E0119 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A8DED7BC7D386B1BB2FB2D07 /* FundingRateWidgetApp.swift */,
+				8AE6F1A12E0A4D278F020004 /* FundingRateWidgetDependencies.swift */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		A429E016A9A6907CA2826081 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				882E8EF41574573667A90A13 /* FileFundingRateCache.swift */,
+			);
+			name = Persistence;
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		A5B6C396264053F95BAE2A79 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				82F31ADF1FA5553CCD92D64E /* FundingRateWidgetApp.swift */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		ACE74629BF8A1772CB8DECA9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				95C7FFFAF008EDC77D948D1E /* FundingRateSnapshot.swift */,
+			);
+			name = Entities;
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		BDA8DA685269FFC14C901262 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C1BCF901E4A79F195531A316 /* Networking */,
+				A429E016A9A6907CA2826081 /* Persistence */,
+				CEC37063711708ACA896E317 /* Providers */,
+			);
+			name = Infrastructure;
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		BFE1334911A3100A407D1750 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F0DCDF7557CF7F2A73E9985A /* FundingRateMenuViewModel.swift */,
+			);
+			name = ViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C1BCF901E4A79F195531A316 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6663C7FBB0C31C1B35DC7235 /* HTTPClient.swift */,
+			);
+			name = Networking;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C30B3AD47377ADDFADCF26B5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3CB67981D41F3129AF4C0CFC /* FundingRateMenuViewModel.swift */,
+			);
+			name = ViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CCDF1754BDBEEC3D737FCCAB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F8B5BEDAF938934DB2C1FC9A /* HTTPClient.swift */,
+			);
+			name = Networking;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CEC37063711708ACA896E317 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				39B5F83D9C8C0FADFB42165E /* ExchangeFundingRateSources.swift */,
+			);
+			name = Providers;
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		DAA6174873E2518E87697CF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6926295311C34D6F26522 /* FundingRateMenuView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC01599794606BCF15D16BC9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4408934EFA649CC8CF2B377F /* Info.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		E2B02195118FE32B570BAC7C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FF9A04E84285851C165E8A08 /* Entities */,
+				4BF1F2707094D194D1716017 /* Repositories */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F990E7A2B81DB537D8266F75 /* Formatting */ = {
+			isa = PBXGroup;
+			children = (
+				887FE631C02FF51A4AE5466C /* FundingRateFormatting.swift */,
+			);
+			name = Formatting;
+			path = Formatting;
+			sourceTree = "<group>";
+		};
+		F9E8872B780C32495131F871 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				316D74A3D3062A41FCE79C98 /* TaskTimeout.swift */,
+			);
+			name = Concurrency;
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		FF9A04E84285851C165E8A08 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				94906EE96954B904E7AEF2A9 /* FundingRateSnapshot.swift */,
+			);
+			name = Entities;
+			path = Entities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C28FA0A3BE7F5CDDFF80124A /* FundingRateWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0DE6F4D16A2487DA8ED004F /* Build configuration list for PBXNativeTarget "FundingRateWidget" */;
+			buildPhases = (
+				63D0FD78CAF913FCAE520A80 /* Sources */,
+				C50BBBC42A45E3FA4D3F1C88 /* Frameworks */,
+				CF1F12C2400E0B319EBD11CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FundingRateWidget;
+			productName = FundingRateWidget;
+			productReference = EE9AD46013A7C3CCE5C40A94 /* FundingRateWidget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		274F95808FAB5D9CC61E632B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+			};
+			buildConfigurationList = ECD79E391009F3B0EE3594FA /* Build configuration list for PBXProject "FundingRateWidget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AB9436C41E75FA723606C0F;
+			productRefGroup = 8A17C51344C8158977B0961F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C28FA0A3BE7F5CDDFF80124A /* FundingRateWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF1F12C2400E0B319EBD11CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63D0FD78CAF913FCAE520A80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7B39623FEE5B79F845822A /* LoadCachedFundingRatesUseCase.swift in Sources */,
+				F02A785F9C44E0B4FE55AECD /* RefreshFundingRatesUseCase.swift in Sources */,
+				8AE6F1A12E0A4D278F010001 /* RefreshBitcoinETFNetFlowUseCase.swift in Sources */,
+				8AE6F1A12E0A4D278F010002 /* RefreshCryptoFearGreedUseCase.swift in Sources */,
+				8AE6F1A12E0A4D278F010003 /* RefreshBitcoinRSIUseCase.swift in Sources */,
+				8AE6F1A12E0A4D278F010005 /* RefreshBitcoinMVRVZScoreUseCase.swift in Sources */,
+				7E269A5D7B1A7FF6AC1AECFE /* FundingRateMenuViewModel.swift in Sources */,
+				2CEB187D31CBB04FDE945CCB /* FundingRateSnapshot.swift in Sources */,
+				E51333369AB2DC1E12F611B7 /* FundingRateCache.swift in Sources */,
+				EE47091E4E590E16A4C15C2F /* FundingRateSource.swift in Sources */,
+				51178DB0D19B41444F0F3E99 /* HTTPClient.swift in Sources */,
+				7420ABF40CE23FE0E0E9ED41 /* FileFundingRateCache.swift in Sources */,
+				1ABF9B0DA7DA0851D4670D3B /* ExchangeFundingRateSources.swift in Sources */,
+				DD705A74C4B129A4C203BF80 /* FundingRateWidgetApp.swift in Sources */,
+				8AE6F1A12E0A4D278F010004 /* FundingRateWidgetDependencies.swift in Sources */,
+				59E60AE862CDA2DDDD99A821 /* FundingRateMenuView.swift in Sources */,
+				5499CE51571B992738B8745A /* TaskTimeout.swift in Sources */,
+				72FB763AD748AD14539FDDCB /* FundingRateFormatting.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		166E1A6D2E54084DCEC9F31D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4F29BFD92A719503199B41DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangyuquan.FundingRateWidget;
+				PRODUCT_NAME = FundingRateWidget;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		69413F2219011AD44E088336 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D20BB0F647D6538641C92BC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wangyuquan.FundingRateWidget;
+				PRODUCT_NAME = FundingRateWidget;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0DE6F4D16A2487DA8ED004F /* Build configuration list for PBXNativeTarget "FundingRateWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F29BFD92A719503199B41DF /* Release */,
+				D20BB0F647D6538641C92BC5 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD79E391009F3B0EE3594FA /* Build configuration list for PBXProject "FundingRateWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166E1A6D2E54084DCEC9F31D /* Debug */,
+				69413F2219011AD44E088336 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 274F95808FAB5D9CC61E632B /* Project object */;
+}
