@@ -3,30 +3,74 @@ import SwiftUI
 
 struct FundingRateMenuView: View {
     @ObservedObject var viewModel: FundingRateMenuViewModel
+    @State private var showsDetails = false
+    @State private var selectedStablecoinRange = StablecoinRange.sevenDays
+    @State private var panelOpacity = 0.0
+    @State private var liquidEffectsOpacity = 0.0
 
     private let panelWidth: CGFloat = 388
-    private let panelMaxHeight: CGFloat = 556
     private let surfaceTint = Color(red: 0.14, green: 0.15, blue: 0.17)
     private let outlineTint = Color.white.opacity(0.08)
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack(alignment: .leading, spacing: 14) {
-                header
-                overviewCard
-                onChainCard
-                fundingCard
-                footer
+        Group {
+            if showsDetails {
+                ScrollView(.vertical, showsIndicators: true) {
+                    menuContent
+                }
+                .frame(height: expandedPanelHeight, alignment: .top)
+            } else {
+                menuContent
             }
-            .padding(16)
-            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(width: panelWidth)
-        .frame(maxHeight: panelMaxHeight, alignment: .top)
         .background(panelBackground)
+        .opacity(panelOpacity)
+        .scaleEffect(panelOpacity < 1 ? 0.985 : 1, anchor: .top)
+        .onAppear {
+            panelOpacity = 0
+            liquidEffectsOpacity = 0
+
+            withAnimation(.easeOut(duration: 0.30)) {
+                panelOpacity = 1
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.36) {
+                withAnimation(.easeOut(duration: 0.42)) {
+                    liquidEffectsOpacity = 1
+                }
+            }
+        }
+        .onDisappear {
+            panelOpacity = 0
+            liquidEffectsOpacity = 0
+        }
         .task {
             viewModel.refreshIfNeededForPanelOpen()
         }
+    }
+
+    private var expandedPanelHeight: CGFloat {
+        let visibleScreenHeight = NSScreen.main?.visibleFrame.height ?? 820
+        return min(760, visibleScreenHeight - 96)
+    }
+
+    private var menuContent: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            accumulationThermometerCard
+
+            if showsDetails {
+                scoreDetailsCard
+                overviewCard
+                stablecoinSupplyCard
+                onChainCard
+                fundingCard
+            }
+        }
+        .padding(.top, 16)
+        .padding(.horizontal, 16)
+        .padding(.bottom, 16)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private var panelBackground: some View {
@@ -56,26 +100,118 @@ struct FundingRateMenuView: View {
         }
     }
 
-    private var header: some View {
-        HStack(alignment: .top, spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("BTC Pulse")
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
+    private var closeButton: some View {
+        Button {
+            NSApp.terminate(nil)
+        } label: {
+            Image(systemName: "xmark")
+                .font(.system(size: 11, weight: .bold))
+                .frame(width: 24, height: 24)
+        }
+        .buttonStyle(CloseButtonStyle())
+    }
 
-                Text(headerSubtitle)
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.68))
+    private var accumulationThermometerCard: some View {
+        let score = viewModel.accumulationScore
+
+        return DashboardCard {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack(alignment: .top, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 7) {
+                        Text(score.statusText)
+                            .font(.system(size: 26, weight: .bold, design: .rounded))
+                            .foregroundStyle(.white)
+                        Text(score.subtitleText)
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.62))
+                    }
+
+                    Spacer()
+
+                    closeButton
+                }
+
+                BuySignalThermometer(
+                    fillRatio: score.fillRatio,
+                    fillColor: temperatureColor(for: score),
+                    effectsOpacity: liquidEffectsOpacity
+                )
+
+                Button {
+                    withAnimation(.spring(response: 0.28, dampingFraction: 0.86)) {
+                        showsDetails.toggle()
+                    }
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: showsDetails ? "chevron.up" : "chevron.down")
+                            .font(.caption.weight(.bold))
+                        Text(showsDetails ? "收起細節" : "Details")
+                            .font(.caption.weight(.semibold))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color.white.opacity(0.07))
+                    )
+                    .foregroundStyle(.white.opacity(0.88))
+                }
+                .buttonStyle(.plain)
+
+                refreshControlRow
+            }
+        }
+    }
+
+    private var scoreDetailsCard: some View {
+        let score = viewModel.accumulationScore
+
+        return DashboardCard {
+            VStack(alignment: .leading, spacing: 12) {
+                sectionLabel("Why")
+
+                VStack(spacing: 0) {
+                    ForEach(Array(score.items.enumerated()), id: \.element.id) { index, item in
+                        scoreDetailRow(item)
+
+                        if index < score.items.count - 1 {
+                            Divider()
+                                .overlay(Color.white.opacity(0.06))
+                                .padding(.vertical, 8)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func scoreDetailRow(_ item: AccumulationScoreItem) -> some View {
+        HStack(alignment: .center, spacing: 10) {
+            Image(systemName: item.isTriggered ? "checkmark.circle.fill" : "circle")
+                .font(.system(size: 15, weight: .semibold))
+                .foregroundStyle(item.isTriggered ? Color.green : Color.white.opacity(0.28))
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(item.title)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.92))
+
+                Text(item.detail)
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.55))
             }
 
             Spacer()
 
-            HStack(spacing: 8) {
-                if viewModel.isRefreshing {
-                    StatusBadge(text: "更新中", tint: .blue)
-                } else {
-                    StatusBadge(text: headerStatusText, tint: headerStatusTint)
-                }
+            VStack(alignment: .trailing, spacing: 3) {
+                Text(item.valueText)
+                    .font(.caption.weight(.semibold))
+                    .monospacedDigit()
+                    .foregroundStyle(.white.opacity(0.86))
+
+                Text("\(formatWeight(item.weight)) pts")
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.42))
             }
         }
     }
@@ -155,6 +291,68 @@ struct FundingRateMenuView: View {
         }
     }
 
+    private var stablecoinSupplyCard: some View {
+        let snapshot = viewModel.stablecoinSupply
+
+        return DashboardCard {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        sectionLabel("Stablecoin Liquidity")
+                        Text(stablecoinSummaryText)
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.68))
+                    }
+
+                    Spacer()
+
+                    stablecoinRangePicker
+                }
+
+                HStack(alignment: .lastTextBaseline, spacing: 8) {
+                    Text(formatBillionsUSD(snapshot?.totalMarketCapUSD))
+                        .font(.system(size: 32, weight: .bold, design: .rounded))
+                        .monospacedDigit()
+                        .foregroundStyle(.white)
+
+                    Spacer()
+                }
+
+                HStack(spacing: 10) {
+                    infoStrip(
+                        label: "\(selectedStablecoinRange.title) Change",
+                        value: formatBillionsUSDChange(stablecoinSelectedChangeUSD)
+                    )
+                    infoStrip(
+                        label: "\(selectedStablecoinRange.title) %",
+                        value: formatSignedPercent(stablecoinSelectedChangePercent)
+                    )
+                }
+            }
+        }
+    }
+
+    private var stablecoinRangePicker: some View {
+        HStack(spacing: 4) {
+            ForEach(StablecoinRange.allCases) { range in
+                Button {
+                    selectedStablecoinRange = range
+                } label: {
+                    Text(range.title)
+                        .font(.caption2.weight(.bold))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(selectedStablecoinRange == range ? Color.white.opacity(0.18) : Color.white.opacity(0.06))
+                        )
+                        .foregroundStyle(selectedStablecoinRange == range ? .white : .white.opacity(0.58))
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+
     private var fundingCard: some View {
         DashboardCard {
             VStack(alignment: .leading, spacing: 12) {
@@ -184,7 +382,7 @@ struct FundingRateMenuView: View {
         }
     }
 
-    private var footer: some View {
+    private var refreshControlRow: some View {
         HStack {
             Text(viewModel.footerText)
                 .font(.caption2)
@@ -198,10 +396,6 @@ struct FundingRateMenuView: View {
             .buttonStyle(FooterButtonStyle())
             .keyboardShortcut("r", modifiers: [.command])
 
-            Button("Quit") {
-                NSApp.terminate(nil)
-            }
-            .buttonStyle(FooterButtonStyle())
         }
     }
 
@@ -270,40 +464,6 @@ struct FundingRateMenuView: View {
             .tracking(1.2)
             .foregroundStyle(.white.opacity(0.48))
             .textCase(.uppercase)
-    }
-
-    private var headerSubtitle: String {
-        if viewModel.isRefreshing {
-            return "正在同步最新市場資料"
-        }
-
-        return viewModel.footerText
-    }
-
-    private var headerStatusText: String {
-        let statuses = [
-            viewModel.bitcoinETFNetFlow?.sourceStatus,
-            viewModel.cryptoFearGreed?.sourceStatus,
-            viewModel.bitcoinRSI?.sourceStatus,
-            viewModel.bitcoinMVRVZScore?.sourceStatus
-        ]
-
-        if statuses.contains(.error) { return "部分失敗" }
-        if statuses.contains(.stale) { return "含快取" }
-        return "已更新"
-    }
-
-    private var headerStatusTint: Color {
-        let statuses = [
-            viewModel.bitcoinETFNetFlow?.sourceStatus,
-            viewModel.cryptoFearGreed?.sourceStatus,
-            viewModel.bitcoinRSI?.sourceStatus,
-            viewModel.bitcoinMVRVZScore?.sourceStatus
-        ]
-
-        if statuses.contains(.error) { return .gray }
-        if statuses.contains(.stale) { return .orange }
-        return .green
     }
 
     private var etfSummaryText: String {
@@ -380,13 +540,48 @@ struct FundingRateMenuView: View {
 
         switch snapshot.sourceStatus {
         case .ok:
-            return formatETFReportDate(snapshot.reportDate)
+            return snapshot.reportDate.map(formatETFReportDate) ?? snapshot.sourceName
         case .stale:
             return "顯示上次成功資料"
         case .error:
             return "資料暫時不可用"
         case .loading:
             return "更新中"
+        }
+    }
+
+    private var stablecoinSummaryText: String {
+        guard let snapshot = viewModel.stablecoinSupply else {
+            return "等待資料"
+        }
+
+        switch snapshot.sourceStatus {
+        case .ok:
+            return snapshot.reportDate.map(formatETFReportDate) ?? snapshot.sourceName
+        case .stale:
+            return "顯示上次成功資料"
+        case .error:
+            return "資料暫時不可用"
+        case .loading:
+            return "更新中"
+        }
+    }
+
+    private var stablecoinSelectedChangeUSD: Double? {
+        switch selectedStablecoinRange {
+        case .sevenDays:
+            return viewModel.stablecoinSupply?.change7DUSD
+        case .thirtyDays:
+            return viewModel.stablecoinSupply?.change30DUSD
+        }
+    }
+
+    private var stablecoinSelectedChangePercent: Double? {
+        switch selectedStablecoinRange {
+        case .sevenDays:
+            return viewModel.stablecoinSupply?.change7DPercent
+        case .thirtyDays:
+            return viewModel.stablecoinSupply?.change30DPercent
         }
     }
 
@@ -420,135 +615,42 @@ struct FundingRateMenuView: View {
     private var mvrvZScoreStateBand: MVRVZScoreBand {
         mvrvZScoreBand(for: viewModel.bitcoinMVRVZScore?.value)
     }
-}
 
-private struct FundingRateRowView: View {
-    let snapshot: FundingRateSnapshot
-
-    var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            Circle()
-                .fill(rateColor)
-                .frame(width: 8, height: 8)
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(snapshot.exchange.displayName)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(.white)
-
-                Text(detailText)
-                    .font(.caption2)
-                    .foregroundStyle(.white.opacity(0.58))
-                    .lineLimit(1)
-            }
-
-            Spacer()
-
-            VStack(alignment: .trailing, spacing: 4) {
-                Text(formatFundingRate(snapshot.fundingRate))
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .monospacedDigit()
-                    .foregroundStyle(rateColor)
-
-                Text(statusLabel)
-                    .font(.caption2.weight(.medium))
-                    .foregroundStyle(statusTint)
-            }
+    private func temperatureColor(for score: AccumulationScore) -> Color {
+        let ratio = score.fillRatio
+        switch ratio {
+        case 1...:
+            return Color(red: 1.00, green: 0.79, blue: 0.22)
+        case ..<0.25:
+            return Color(red: 0.45, green: 0.55, blue: 0.68)
+        case 0.25..<0.45:
+            return Color(red: 0.24, green: 0.68, blue: 0.76)
+        case 0.45..<0.65:
+            return Color(red: 0.95, green: 0.74, blue: 0.26)
+        case 0.65..<0.85:
+            return Color(red: 1.00, green: 0.50, blue: 0.23)
+        default:
+            return Color(red: 1.00, green: 0.25, blue: 0.18)
         }
     }
 
-    private var rateColor: Color {
-        guard let value = snapshot.fundingRate else { return .white.opacity(0.7) }
-        if value > 0 { return Color(red: 0.98, green: 0.42, blue: 0.36) }
-        if value < 0 { return Color(red: 0.39, green: 0.82, blue: 0.54) }
-        return .white.opacity(0.9)
-    }
-
-    private var statusTint: Color {
-        switch snapshot.sourceStatus {
-        case .ok:
-            return .green
-        case .stale:
-            return .orange
-        case .error:
-            return .gray
-        case .loading:
-            return .blue
-        }
-    }
-
-    private var statusLabel: String {
-        switch snapshot.sourceStatus {
-        case .ok:
-            return "最新"
-        case .stale:
-            return "快取"
-        case .error:
-            return "失敗"
-        case .loading:
-            return "更新中"
-        }
-    }
-
-    private var detailText: String {
-        switch snapshot.sourceStatus {
-        case .ok, .stale:
-            return "Next \(formatNextFundingTime(snapshot.nextFundingTime))"
-        case .error:
-            return snapshot.errorMessage ?? "暫時無法取得資料"
-        case .loading:
-            return "正在抓取最新資料"
-        }
+    private func formatWeight(_ value: Double) -> String {
+        value == floor(value) ? String(format: "%.0f", value) : String(format: "%.1f", value)
     }
 }
 
-private struct DashboardCard<Content: View>: View {
-    @ViewBuilder let content: Content
+private enum StablecoinRange: String, CaseIterable, Identifiable {
+    case sevenDays
+    case thirtyDays
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            content
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .sevenDays:
+            return "7D"
+        case .thirtyDays:
+            return "30D"
         }
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(Color.white.opacity(0.055))
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
-        )
-    }
-}
-
-private struct FooterButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.caption.weight(.semibold))
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
-            .background(
-                Capsule(style: .continuous)
-                    .fill(Color.white.opacity(configuration.isPressed ? 0.16 : 0.10))
-            )
-            .foregroundStyle(.white.opacity(0.88))
-    }
-}
-
-private struct StatusBadge: View {
-    let text: String
-    let tint: Color
-
-    var body: some View {
-        Text(text)
-            .font(.system(size: 11, weight: .semibold))
-            .lineLimit(1)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
-            .background(
-                Capsule(style: .continuous)
-                    .fill(tint.opacity(0.16))
-            )
-            .foregroundStyle(tint)
     }
 }

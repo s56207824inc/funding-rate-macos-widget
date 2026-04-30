@@ -49,6 +49,15 @@ enum FundingFormatters {
         formatter.usesGroupingSeparator = true
         return formatter
     }()
+
+    static let compactBillions: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+        formatter.minimumFractionDigits = 0
+        formatter.usesGroupingSeparator = true
+        return formatter
+    }()
 }
 
 func formatFundingRate(_ value: Double?) -> String {
@@ -78,6 +87,25 @@ func formatMillionsUSD(_ value: Double?) -> String {
     guard let value else { return "--" }
     let sign = value > 0 ? "+" : ""
     return "\(sign)\(FundingFormatters.compactMillions.string(from: NSNumber(value: value)) ?? "--")M"
+}
+
+func formatBillionsUSD(_ value: Double?) -> String {
+    guard let value else { return "--" }
+    let billions = value / 1_000_000_000
+    return "$\(FundingFormatters.compactBillions.string(from: NSNumber(value: billions)) ?? "--")B"
+}
+
+func formatBillionsUSDChange(_ value: Double?) -> String {
+    guard let value else { return "--" }
+    let sign = value > 0 ? "+" : ""
+    let billions = value / 1_000_000_000
+    return "\(sign)$\(FundingFormatters.compactBillions.string(from: NSNumber(value: billions)) ?? "--")B"
+}
+
+func formatSignedPercent(_ value: Double?) -> String {
+    guard let value else { return "--" }
+    let sign = value > 0 ? "+" : ""
+    return "\(sign)\(String(format: "%.2f", value))%"
 }
 
 func formatETFReportDate(_ date: Date?) -> String {

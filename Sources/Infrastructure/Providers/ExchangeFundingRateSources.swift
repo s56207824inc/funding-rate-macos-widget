@@ -173,7 +173,8 @@ struct FarsideBitcoinETFNetFlowSource: BitcoinETFNetFlowSource {
         }
 
         let rows = parseRows(from: html)
-        guard let latest = rows.sorted(by: { $0.date < $1.date }).last else {
+        let reportedRows = rows.filter { hasReportedFundFlow($0.values) }
+        guard let latest = reportedRows.sorted(by: { $0.date < $1.date }).last else {
             throw ProviderError.missingData("ETF 淨流入資料暫時不可用")
         }
 
@@ -223,6 +224,10 @@ struct FarsideBitcoinETFNetFlowSource: BitcoinETFNetFlowSource {
         }
 
         return rows
+    }
+
+    private func hasReportedFundFlow(_ values: [String]) -> Bool {
+        values.dropLast().contains { parseFlowValue($0) != nil }
     }
 }
 
@@ -311,6 +316,96 @@ struct BinanceBitcoinRSISource: BitcoinRSISource {
             sourceName: sourceName,
             errorMessage: nil
         )
+    }
+}
+
+struct BinanceBitcoinSpotPriceSource: BitcoinSpotPriceSource {
+    private let httpClient: HTTPClient
+    private let symbol: String
+    private let sourceName = "Binance"
+
+    init(httpClient: HTTPClient, symbol: String = "BTCUSDT") {
+        self.httpClient = httpClient
+        self.symbol = symbol
+    }
+
+    func fetchLatestSpotPrice() async throws -> BitcoinSpotPriceSnapshot {
+        guard let url = URL(string: "https://api.binance.com/api/v3/ticker/price?symbol=\(symbol)") else {
+            throw ProviderError.invalidURL
+        }
+
+        let response = try await httpClient.decode(BinanceSpotPriceResponse.self, from: URLRequest(url: url))
+        guard let price = Double(response.price) else {
+            throw ProviderError.missingData("BTC 現價無法解析")
+        }
+
+        return BitcoinSpotPriceSnapshot(
+            priceUSD: price,
+            fetchedAt: Date(),
+            sourceStatus: .ok,
+            sourceName: sourceName,
+            errorMessage: nil
+        )
+    }
+}
+
+struct DefiLlamaStablecoinSupplySource: StablecoinSupplySource {
+    private let httpClient: HTTPClient
+    private let sourceName = "DeFiLlama"
+
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
+
+    func fetchLatestSupply() async throws -> StablecoinSupplySnapshot {
+        guard let url = URL(string: "https://stablecoins.llama.fi/stablecoincharts/all") else {
+            throw ProviderError.invalidURL
+        }
+
+        let rows = try await httpClient.decode([DefiLlamaStablecoinChartRow].self, from: URLRequest(url: url))
+            .compactMap(StablecoinSupplyPoint.init(row:))
+            .sorted(by: { $0.date < $1.date })
+
+        guard let latest = rows.last else {
+            throw ProviderError.missingData("Stablecoin supply 無資料")
+        }
+
+        let sevenDayPoint = point(in: rows, daysBefore: 7, relativeTo: latest.date)
+        let thirtyDayPoint = point(in: rows, daysBefore: 30, relativeTo: latest.date)
+
+        return StablecoinSupplySnapshot(
+            totalMarketCapUSD: latest.totalMarketCapUSD,
+            change7DUSD: delta(from: sevenDayPoint, to: latest),
+            change7DPercent: deltaPercent(from: sevenDayPoint, to: latest),
+            change30DUSD: delta(from: thirtyDayPoint, to: latest),
+            change30DPercent: deltaPercent(from: thirtyDayPoint, to: latest),
+            reportDate: latest.date,
+            fetchedAt: Date(),
+            sourceStatus: .ok,
+            sourceName: sourceName,
+            errorMessage: nil
+        )
+    }
+
+    private func point(
+        in rows: [StablecoinSupplyPoint],
+        daysBefore days: Int,
+        relativeTo latestDate: Date
+    ) -> StablecoinSupplyPoint? {
+        guard let targetDate = Calendar(identifier: .gregorian).date(byAdding: .day, value: -days, to: latestDate) else {
+            return nil
+        }
+
+        return rows.last { $0.date <= targetDate }
+    }
+
+    private func delta(from previous: StablecoinSupplyPoint?, to latest: StablecoinSupplyPoint) -> Double? {
+        previous.map { latest.totalMarketCapUSD - $0.totalMarketCapUSD }
+    }
+
+    private func deltaPercent(from previous: StablecoinSupplyPoint?, to latest: StablecoinSupplyPoint) -> Double? {
+        guard let previous, previous.totalMarketCapUSD != 0 else { return nil }
+        return (latest.totalMarketCapUSD / previous.totalMarketCapUSD - 1) * 100
     }
 }
 
@@ -468,6 +563,67 @@ struct NewhedgeBitcoinMVRVZScoreSource: BitcoinMVRVZScoreSource {
     }
 }
 
+struct BTCFunkBitcoinMVRVZScoreSource: BitcoinMVRVZScoreSource {
+    private let httpClient: HTTPClient
+    private let sourceName = "BTCFunk"
+
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
+
+    func fetchLatestMVRVZScore() async throws -> BitcoinMVRVZScoreSnapshot {
+        guard let url = URL(string: "https://btcfunk.com/api/mvrv_zscore?summary=true") else {
+            throw ProviderError.invalidURL
+        }
+
+        let response = try await httpClient.decode(BTCFunkMVRVZScoreResponse.self, from: URLRequest(url: url))
+
+        return BitcoinMVRVZScoreSnapshot(
+            value: response.zScore,
+            realizedPriceUSD: nil,
+            shortTermHolderRealizedPriceUSD: nil,
+            reportDate: parseISO8601Date(response.updatedAt),
+            fetchedAt: Date(),
+            sourceStatus: .ok,
+            sourceName: sourceName,
+            errorMessage: nil
+        )
+    }
+}
+
+struct CompositeBitcoinMVRVZScoreSource: BitcoinMVRVZScoreSource {
+    private let valueSource: BitcoinMVRVZScoreSource
+    private let realizedPriceSource: BitcoinMVRVZScoreSource
+    private let sourceName = "BTCFunk + BGeometrics"
+
+    init(
+        valueSource: BitcoinMVRVZScoreSource,
+        realizedPriceSource: BitcoinMVRVZScoreSource
+    ) {
+        self.valueSource = valueSource
+        self.realizedPriceSource = realizedPriceSource
+    }
+
+    func fetchLatestMVRVZScore() async throws -> BitcoinMVRVZScoreSnapshot {
+        async let valueSnapshot = valueSource.fetchLatestMVRVZScore()
+        async let realizedSnapshot = realizedPriceSource.fetchLatestMVRVZScore()
+
+        let value = try await valueSnapshot
+        let realized = try? await realizedSnapshot
+
+        return BitcoinMVRVZScoreSnapshot(
+            value: value.value,
+            realizedPriceUSD: realized?.realizedPriceUSD,
+            shortTermHolderRealizedPriceUSD: realized?.shortTermHolderRealizedPriceUSD,
+            reportDate: value.reportDate,
+            fetchedAt: Date(),
+            sourceStatus: .ok,
+            sourceName: sourceName,
+            errorMessage: nil
+        )
+    }
+}
+
 struct BGeometricsBitcoinMVRVZScoreSource: BitcoinMVRVZScoreSource {
     private let httpClient: HTTPClient
     private let sourceName = "BGeometrics"
@@ -574,11 +730,11 @@ private func parseFlowValue(_ value: String) -> Double? {
     guard !trimmed.isEmpty, trimmed != "-" else { return nil }
 
     if trimmed.hasPrefix("("), trimmed.hasSuffix(")") {
-        let numeric = String(trimmed.dropFirst().dropLast())
+        let numeric = String(trimmed.dropFirst().dropLast()).replacingOccurrences(of: ",", with: "")
         return Double(numeric).map { -$0 }
     }
 
-    return Double(trimmed)
+    return Double(trimmed.replacingOccurrences(of: ",", with: ""))
 }
 
 private func parseISODate(_ value: String) -> Date? {
@@ -586,6 +742,17 @@ private func parseISODate(_ value: String) -> Date? {
     formatter.locale = Locale(identifier: "en_US_POSIX")
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
     formatter.dateFormat = "yyyy-MM-dd"
+    return formatter.date(from: value)
+}
+
+private func parseISO8601Date(_ value: String) -> Date? {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    if let date = formatter.date(from: value) {
+        return date
+    }
+
+    formatter.formatOptions = [.withInternetDateTime]
     return formatter.date(from: value)
 }
 
@@ -678,6 +845,45 @@ private struct BitboMVRVZScoreResponse: Decodable {
     }
 
     let data: [Item]
+}
+
+private struct BTCFunkMVRVZScoreResponse: Decodable {
+    let zScore: Double
+    let updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case zScore = "z_score"
+        case updatedAt = "updated_at"
+    }
+}
+
+private struct DefiLlamaStablecoinChartRow: Decodable {
+    struct CirculatingValue: Decodable {
+        let peggedUSD: Double?
+    }
+
+    let date: String
+    let totalCirculatingUSD: CirculatingValue?
+    let totalCirculating: CirculatingValue?
+}
+
+private struct StablecoinSupplyPoint {
+    let date: Date
+    let totalMarketCapUSD: Double
+
+    init?(row: DefiLlamaStablecoinChartRow) {
+        guard let timestamp = TimeInterval(row.date) else { return nil }
+        let value = row.totalCirculatingUSD?.peggedUSD ?? row.totalCirculating?.peggedUSD
+        guard let value else { return nil }
+
+        self.date = Date(timeIntervalSince1970: timestamp)
+        self.totalMarketCapUSD = value
+    }
+}
+
+private struct BinanceSpotPriceResponse: Decodable {
+    let symbol: String
+    let price: String
 }
 
 private enum BinanceKlineField: Decodable {

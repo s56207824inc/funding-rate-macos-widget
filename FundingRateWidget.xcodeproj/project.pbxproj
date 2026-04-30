@@ -13,6 +13,37 @@
 		5499CE51571B992738B8745A /* TaskTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D74A3D3062A41FCE79C98 /* TaskTimeout.swift */; };
 		57413B89765CDAD505727517 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FC22BA8C3666C2950FF44B /* Cocoa.framework */; };
 		59E60AE862CDA2DDDD99A821 /* FundingRateMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6926295311C34D6F26522 /* FundingRateMenuView.swift */; };
+		5B13D4473DB64CFEA76F0001 /* FundingRateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1001 /* FundingRateRowView.swift */; };
+		5B13D4473DB64CFEA76F0002 /* MenuComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1002 /* MenuComponents.swift */; };
+		5B13D4473DB64CFEA76F0003 /* BuySignalThermometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1003 /* BuySignalThermometer.swift */; };
+		5B13D4473DB64CFEA76F0004 /* RefreshStablecoinSupplyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1004 /* RefreshStablecoinSupplyUseCase.swift */; };
+		5B13D4473DB64CFEA76F0005 /* ExchangeID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1005 /* ExchangeID.swift */; };
+		5B13D4473DB64CFEA76F0006 /* SourceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1006 /* SourceStatus.swift */; };
+		5B13D4473DB64CFEA76F0007 /* BitcoinETFNetFlowSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1007 /* BitcoinETFNetFlowSnapshot.swift */; };
+		5B13D4473DB64CFEA76F0008 /* CryptoFearGreedSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1008 /* CryptoFearGreedSnapshot.swift */; };
+		5B13D4473DB64CFEA76F0009 /* BitcoinRSISnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1009 /* BitcoinRSISnapshot.swift */; };
+		5B13D4473DB64CFEA76F0010 /* BitcoinMVRVZScoreSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1010 /* BitcoinMVRVZScoreSnapshot.swift */; };
+		5B13D4473DB64CFEA76F0011 /* BitcoinSpotPriceSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1011 /* BitcoinSpotPriceSnapshot.swift */; };
+		5B13D4473DB64CFEA76F0012 /* StablecoinSupplySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1012 /* StablecoinSupplySnapshot.swift */; };
+		5B13D4473DB64CFEA76F0013 /* BitcoinETFNetFlowCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1013 /* BitcoinETFNetFlowCache.swift */; };
+		5B13D4473DB64CFEA76F0014 /* CryptoFearGreedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1014 /* CryptoFearGreedCache.swift */; };
+		5B13D4473DB64CFEA76F0015 /* BitcoinRSICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1015 /* BitcoinRSICache.swift */; };
+		5B13D4473DB64CFEA76F0016 /* BitcoinMVRVZScoreCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1016 /* BitcoinMVRVZScoreCache.swift */; };
+		5B13D4473DB64CFEA76F0017 /* BitcoinSpotPriceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1017 /* BitcoinSpotPriceCache.swift */; };
+		5B13D4473DB64CFEA76F0018 /* StablecoinSupplyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1018 /* StablecoinSupplyCache.swift */; };
+		5B13D4473DB64CFEA76F0019 /* FileBitcoinETFNetFlowCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1019 /* FileBitcoinETFNetFlowCache.swift */; };
+		5B13D4473DB64CFEA76F0020 /* FileCryptoFearGreedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1020 /* FileCryptoFearGreedCache.swift */; };
+		5B13D4473DB64CFEA76F0021 /* FileBitcoinRSICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1021 /* FileBitcoinRSICache.swift */; };
+		5B13D4473DB64CFEA76F0022 /* FileBitcoinMVRVZScoreCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1022 /* FileBitcoinMVRVZScoreCache.swift */; };
+		5B13D4473DB64CFEA76F0023 /* FileBitcoinSpotPriceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1023 /* FileBitcoinSpotPriceCache.swift */; };
+		5B13D4473DB64CFEA76F0024 /* FileStablecoinSupplyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1024 /* FileStablecoinSupplyCache.swift */; };
+		5B13D4473DB64CFEA76F0025 /* FileCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1025 /* FileCacheStore.swift */; };
+		5B13D4473DB64CFEA76F0026 /* BitcoinETFNetFlowSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1026 /* BitcoinETFNetFlowSource.swift */; };
+		5B13D4473DB64CFEA76F0027 /* CryptoFearGreedSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1027 /* CryptoFearGreedSource.swift */; };
+		5B13D4473DB64CFEA76F0028 /* BitcoinRSISource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1028 /* BitcoinRSISource.swift */; };
+		5B13D4473DB64CFEA76F0029 /* BitcoinMVRVZScoreSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1029 /* BitcoinMVRVZScoreSource.swift */; };
+		5B13D4473DB64CFEA76F0030 /* BitcoinSpotPriceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1030 /* BitcoinSpotPriceSource.swift */; };
+		5B13D4473DB64CFEA76F0031 /* StablecoinSupplySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13D4473DB64CFEA76F1031 /* StablecoinSupplySource.swift */; };
 		72FB763AD748AD14539FDDCB /* FundingRateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887FE631C02FF51A4AE5466C /* FundingRateFormatting.swift */; };
 		7420ABF40CE23FE0E0E9ED41 /* FileFundingRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E8EF41574573667A90A13 /* FileFundingRateCache.swift */; };
 		7E269A5D7B1A7FF6AC1AECFE /* FundingRateMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB67981D41F3129AF4C0CFC /* FundingRateMenuViewModel.swift */; };
@@ -22,6 +53,7 @@
 		8AE6F1A12E0A4D278F010003 /* RefreshBitcoinRSIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */; };
 		8AE6F1A12E0A4D278F010004 /* FundingRateWidgetDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020004 /* FundingRateWidgetDependencies.swift */; };
 		8AE6F1A12E0A4D278F010005 /* RefreshBitcoinMVRVZScoreUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */; };
+		8AE6F1A12E0A4D278F010006 /* RefreshBitcoinSpotPriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE6F1A12E0A4D278F020006 /* RefreshBitcoinSpotPriceUseCase.swift */; };
 		DD705A74C4B129A4C203BF80 /* FundingRateWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DED7BC7D386B1BB2FB2D07 /* FundingRateWidgetApp.swift */; };
 		E51333369AB2DC1E12F611B7 /* FundingRateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D94E8C3652F16870C3A91 /* FundingRateCache.swift */; };
 		EE47091E4E590E16A4C15C2F /* FundingRateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1817EFA6A142E67E48749C /* FundingRateSource.swift */; };
@@ -29,9 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		038852F10C619A97359A5433 /* FundingRateSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateSource.swift; path = Sources/Domain/Repositories/FundingRateSource.swift; sourceTree = "<group>"; };
 		0D69FE24DCD5EEFD1FAD230C /* FundingRateMenuView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateMenuView.swift; path = Sources/Presentation/Views/FundingRateMenuView.swift; sourceTree = "<group>"; };
-		2E48EA3AB52C4EAA912F7034 /* FundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateCache.swift; path = Sources/Domain/Repositories/FundingRateCache.swift; sourceTree = "<group>"; };
 		316D74A3D3062A41FCE79C98 /* TaskTimeout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TaskTimeout.swift; sourceTree = "<group>"; };
 		39B5F83D9C8C0FADFB42165E /* ExchangeFundingRateSources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExchangeFundingRateSources.swift; sourceTree = "<group>"; };
 		3CB67981D41F3129AF4C0CFC /* FundingRateMenuViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateMenuViewModel.swift; sourceTree = "<group>"; };
@@ -39,6 +69,37 @@
 		4408934EFA649CC8CF2B377F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Info.plist; sourceTree = "<group>"; };
 		4F5234E9A675C87E172B8BD8 /* RefreshFundingRatesUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RefreshFundingRatesUseCase.swift; path = Sources/Application/UseCases/RefreshFundingRatesUseCase.swift; sourceTree = "<group>"; };
 		53FC22BA8C3666C2950FF44B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		5B13D4473DB64CFEA76F1001 /* FundingRateRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateRowView.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1002 /* MenuComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuComponents.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1003 /* BuySignalThermometer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BuySignalThermometer.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1004 /* RefreshStablecoinSupplyUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshStablecoinSupplyUseCase.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1005 /* ExchangeID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExchangeID.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1006 /* SourceStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SourceStatus.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1007 /* BitcoinETFNetFlowSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinETFNetFlowSnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1008 /* CryptoFearGreedSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CryptoFearGreedSnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1009 /* BitcoinRSISnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinRSISnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1010 /* BitcoinMVRVZScoreSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinMVRVZScoreSnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1011 /* BitcoinSpotPriceSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinSpotPriceSnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1012 /* StablecoinSupplySnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StablecoinSupplySnapshot.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1013 /* BitcoinETFNetFlowCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinETFNetFlowCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1014 /* CryptoFearGreedCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CryptoFearGreedCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1015 /* BitcoinRSICache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinRSICache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1016 /* BitcoinMVRVZScoreCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinMVRVZScoreCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1017 /* BitcoinSpotPriceCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinSpotPriceCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1018 /* StablecoinSupplyCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StablecoinSupplyCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1019 /* FileBitcoinETFNetFlowCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileBitcoinETFNetFlowCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1020 /* FileCryptoFearGreedCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileCryptoFearGreedCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1021 /* FileBitcoinRSICache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileBitcoinRSICache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1022 /* FileBitcoinMVRVZScoreCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileBitcoinMVRVZScoreCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1023 /* FileBitcoinSpotPriceCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileBitcoinSpotPriceCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1024 /* FileStablecoinSupplyCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileStablecoinSupplyCache.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1025 /* FileCacheStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileCacheStore.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1026 /* BitcoinETFNetFlowSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinETFNetFlowSource.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1027 /* CryptoFearGreedSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CryptoFearGreedSource.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1028 /* BitcoinRSISource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinRSISource.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1029 /* BitcoinMVRVZScoreSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinMVRVZScoreSource.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1030 /* BitcoinSpotPriceSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BitcoinSpotPriceSource.swift; sourceTree = "<group>"; };
+		5B13D4473DB64CFEA76F1031 /* StablecoinSupplySource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StablecoinSupplySource.swift; sourceTree = "<group>"; };
 		6663C7FBB0C31C1B35DC7235 /* HTTPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		6A2768B4B74947B01FCC4323 /* ExchangeFundingRateSources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExchangeFundingRateSources.swift; path = Sources/Infrastructure/Providers/ExchangeFundingRateSources.swift; sourceTree = "<group>"; };
 		786D94E8C3652F16870C3A91 /* FundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateCache.swift; sourceTree = "<group>"; };
@@ -47,6 +108,7 @@
 		8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinRSIUseCase.swift; sourceTree = "<group>"; };
 		8AE6F1A12E0A4D278F020004 /* FundingRateWidgetDependencies.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FundingRateWidgetDependencies.swift; sourceTree = "<group>"; };
 		8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinMVRVZScoreUseCase.swift; sourceTree = "<group>"; };
+		8AE6F1A12E0A4D278F020006 /* RefreshBitcoinSpotPriceUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshBitcoinSpotPriceUseCase.swift; sourceTree = "<group>"; };
 		82F31ADF1FA5553CCD92D64E /* FundingRateWidgetApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FundingRateWidgetApp.swift; path = Sources/Presentation/App/FundingRateWidgetApp.swift; sourceTree = "<group>"; };
 		84C59436C6DB9CF80E8133CC /* FileFundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileFundingRateCache.swift; path = Sources/Infrastructure/Persistence/FileFundingRateCache.swift; sourceTree = "<group>"; };
 		882E8EF41574573667A90A13 /* FileFundingRateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileFundingRateCache.swift; sourceTree = "<group>"; };
@@ -88,16 +150,6 @@
 			);
 			name = Persistence;
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		123C0FDAC98B1A267044CDD5 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				2E48EA3AB52C4EAA912F7034 /* FundingRateCache.swift */,
-				038852F10C619A97359A5433 /* FundingRateSource.swift */,
-			);
-			name = Repositories;
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		13D5DE4E89D3B71731B60AA5 /* Presentation */ = {
@@ -163,11 +215,41 @@
 		4BF1F2707094D194D1716017 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				786D94E8C3652F16870C3A91 /* FundingRateCache.swift */,
-				CD1817EFA6A142E67E48749C /* FundingRateSource.swift */,
+				5B13D4473DB64CFEA76F1101 /* Cache */,
+				5B13D4473DB64CFEA76F1102 /* Source */,
 			);
 			name = Repositories;
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5B13D4473DB64CFEA76F1101 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				786D94E8C3652F16870C3A91 /* FundingRateCache.swift */,
+				5B13D4473DB64CFEA76F1013 /* BitcoinETFNetFlowCache.swift */,
+				5B13D4473DB64CFEA76F1014 /* CryptoFearGreedCache.swift */,
+				5B13D4473DB64CFEA76F1015 /* BitcoinRSICache.swift */,
+				5B13D4473DB64CFEA76F1016 /* BitcoinMVRVZScoreCache.swift */,
+				5B13D4473DB64CFEA76F1017 /* BitcoinSpotPriceCache.swift */,
+				5B13D4473DB64CFEA76F1018 /* StablecoinSupplyCache.swift */,
+			);
+			name = Cache;
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		5B13D4473DB64CFEA76F1102 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CD1817EFA6A142E67E48749C /* FundingRateSource.swift */,
+				5B13D4473DB64CFEA76F1026 /* BitcoinETFNetFlowSource.swift */,
+				5B13D4473DB64CFEA76F1027 /* CryptoFearGreedSource.swift */,
+				5B13D4473DB64CFEA76F1028 /* BitcoinRSISource.swift */,
+				5B13D4473DB64CFEA76F1029 /* BitcoinMVRVZScoreSource.swift */,
+				5B13D4473DB64CFEA76F1030 /* BitcoinSpotPriceSource.swift */,
+				5B13D4473DB64CFEA76F1031 /* StablecoinSupplySource.swift */,
+			);
+			name = Source;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		5B400829A21710531D6D6D61 /* UseCases */ = {
@@ -189,6 +271,8 @@
 				8AE6F1A12E0A4D278F020002 /* RefreshCryptoFearGreedUseCase.swift */,
 				8AE6F1A12E0A4D278F020003 /* RefreshBitcoinRSIUseCase.swift */,
 				8AE6F1A12E0A4D278F020005 /* RefreshBitcoinMVRVZScoreUseCase.swift */,
+				8AE6F1A12E0A4D278F020006 /* RefreshBitcoinSpotPriceUseCase.swift */,
+				5B13D4473DB64CFEA76F1004 /* RefreshStablecoinSupplyUseCase.swift */,
 			);
 			name = UseCases;
 			path = UseCases;
@@ -264,7 +348,14 @@
 		A429E016A9A6907CA2826081 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				5B13D4473DB64CFEA76F1025 /* FileCacheStore.swift */,
 				882E8EF41574573667A90A13 /* FileFundingRateCache.swift */,
+				5B13D4473DB64CFEA76F1019 /* FileBitcoinETFNetFlowCache.swift */,
+				5B13D4473DB64CFEA76F1020 /* FileCryptoFearGreedCache.swift */,
+				5B13D4473DB64CFEA76F1021 /* FileBitcoinRSICache.swift */,
+				5B13D4473DB64CFEA76F1022 /* FileBitcoinMVRVZScoreCache.swift */,
+				5B13D4473DB64CFEA76F1023 /* FileBitcoinSpotPriceCache.swift */,
+				5B13D4473DB64CFEA76F1024 /* FileStablecoinSupplyCache.swift */,
 			);
 			name = Persistence;
 			path = Persistence;
@@ -348,6 +439,9 @@
 			isa = PBXGroup;
 			children = (
 				C0D6926295311C34D6F26522 /* FundingRateMenuView.swift */,
+				5B13D4473DB64CFEA76F1001 /* FundingRateRowView.swift */,
+				5B13D4473DB64CFEA76F1002 /* MenuComponents.swift */,
+				5B13D4473DB64CFEA76F1003 /* BuySignalThermometer.swift */,
 			);
 			name = Views;
 			path = Views;
@@ -392,7 +486,15 @@
 		FF9A04E84285851C165E8A08 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				5B13D4473DB64CFEA76F1005 /* ExchangeID.swift */,
+				5B13D4473DB64CFEA76F1006 /* SourceStatus.swift */,
 				94906EE96954B904E7AEF2A9 /* FundingRateSnapshot.swift */,
+				5B13D4473DB64CFEA76F1007 /* BitcoinETFNetFlowSnapshot.swift */,
+				5B13D4473DB64CFEA76F1008 /* CryptoFearGreedSnapshot.swift */,
+				5B13D4473DB64CFEA76F1009 /* BitcoinRSISnapshot.swift */,
+				5B13D4473DB64CFEA76F1010 /* BitcoinMVRVZScoreSnapshot.swift */,
+				5B13D4473DB64CFEA76F1011 /* BitcoinSpotPriceSnapshot.swift */,
+				5B13D4473DB64CFEA76F1012 /* StablecoinSupplySnapshot.swift */,
 			);
 			name = Entities;
 			path = Entities;
@@ -466,16 +568,48 @@
 				8AE6F1A12E0A4D278F010002 /* RefreshCryptoFearGreedUseCase.swift in Sources */,
 				8AE6F1A12E0A4D278F010003 /* RefreshBitcoinRSIUseCase.swift in Sources */,
 				8AE6F1A12E0A4D278F010005 /* RefreshBitcoinMVRVZScoreUseCase.swift in Sources */,
+				8AE6F1A12E0A4D278F010006 /* RefreshBitcoinSpotPriceUseCase.swift in Sources */,
+				5B13D4473DB64CFEA76F0004 /* RefreshStablecoinSupplyUseCase.swift in Sources */,
 				7E269A5D7B1A7FF6AC1AECFE /* FundingRateMenuViewModel.swift in Sources */,
+				5B13D4473DB64CFEA76F0005 /* ExchangeID.swift in Sources */,
+				5B13D4473DB64CFEA76F0006 /* SourceStatus.swift in Sources */,
 				2CEB187D31CBB04FDE945CCB /* FundingRateSnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0007 /* BitcoinETFNetFlowSnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0008 /* CryptoFearGreedSnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0009 /* BitcoinRSISnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0010 /* BitcoinMVRVZScoreSnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0011 /* BitcoinSpotPriceSnapshot.swift in Sources */,
+				5B13D4473DB64CFEA76F0012 /* StablecoinSupplySnapshot.swift in Sources */,
 				E51333369AB2DC1E12F611B7 /* FundingRateCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0013 /* BitcoinETFNetFlowCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0014 /* CryptoFearGreedCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0015 /* BitcoinRSICache.swift in Sources */,
+				5B13D4473DB64CFEA76F0016 /* BitcoinMVRVZScoreCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0017 /* BitcoinSpotPriceCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0018 /* StablecoinSupplyCache.swift in Sources */,
 				EE47091E4E590E16A4C15C2F /* FundingRateSource.swift in Sources */,
+				5B13D4473DB64CFEA76F0026 /* BitcoinETFNetFlowSource.swift in Sources */,
+				5B13D4473DB64CFEA76F0027 /* CryptoFearGreedSource.swift in Sources */,
+				5B13D4473DB64CFEA76F0028 /* BitcoinRSISource.swift in Sources */,
+				5B13D4473DB64CFEA76F0029 /* BitcoinMVRVZScoreSource.swift in Sources */,
+				5B13D4473DB64CFEA76F0030 /* BitcoinSpotPriceSource.swift in Sources */,
+				5B13D4473DB64CFEA76F0031 /* StablecoinSupplySource.swift in Sources */,
 				51178DB0D19B41444F0F3E99 /* HTTPClient.swift in Sources */,
 				7420ABF40CE23FE0E0E9ED41 /* FileFundingRateCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0019 /* FileBitcoinETFNetFlowCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0020 /* FileCryptoFearGreedCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0021 /* FileBitcoinRSICache.swift in Sources */,
+				5B13D4473DB64CFEA76F0022 /* FileBitcoinMVRVZScoreCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0023 /* FileBitcoinSpotPriceCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0024 /* FileStablecoinSupplyCache.swift in Sources */,
+				5B13D4473DB64CFEA76F0025 /* FileCacheStore.swift in Sources */,
 				1ABF9B0DA7DA0851D4670D3B /* ExchangeFundingRateSources.swift in Sources */,
 				DD705A74C4B129A4C203BF80 /* FundingRateWidgetApp.swift in Sources */,
 				8AE6F1A12E0A4D278F010004 /* FundingRateWidgetDependencies.swift in Sources */,
 				59E60AE862CDA2DDDD99A821 /* FundingRateMenuView.swift in Sources */,
+				5B13D4473DB64CFEA76F0001 /* FundingRateRowView.swift in Sources */,
+				5B13D4473DB64CFEA76F0002 /* MenuComponents.swift in Sources */,
+				5B13D4473DB64CFEA76F0003 /* BuySignalThermometer.swift in Sources */,
 				5499CE51571B992738B8745A /* TaskTimeout.swift in Sources */,
 				72FB763AD748AD14539FDDCB /* FundingRateFormatting.swift in Sources */,
 			);

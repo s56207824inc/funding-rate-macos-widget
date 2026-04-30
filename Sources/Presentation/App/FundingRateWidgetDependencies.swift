@@ -10,6 +10,8 @@ enum FundingRateWidgetDependencies {
         let cryptoFearGreedCache = FileCryptoFearGreedCache()
         let bitcoinRSICache = FileBitcoinRSICache()
         let bitcoinMVRVZScoreCache = FileBitcoinMVRVZScoreCache()
+        let bitcoinSpotPriceCache = FileBitcoinSpotPriceCache()
+        let stablecoinSupplyCache = FileStablecoinSupplyCache()
 
         return FundingRateMenuViewModel(
             sources: fundingSources,
@@ -35,8 +37,21 @@ enum FundingRateWidgetDependencies {
                 staleThreshold: 3_600
             ),
             refreshBitcoinMVRVZScore: RefreshBitcoinMVRVZScoreUseCase(
-                source: BGeometricsBitcoinMVRVZScoreSource(httpClient: httpClient),
+                source: CompositeBitcoinMVRVZScoreSource(
+                    valueSource: BTCFunkBitcoinMVRVZScoreSource(httpClient: httpClient),
+                    realizedPriceSource: BGeometricsBitcoinMVRVZScoreSource(httpClient: httpClient)
+                ),
                 cache: bitcoinMVRVZScoreCache,
+                staleThreshold: 43_200
+            ),
+            refreshBitcoinSpotPrice: RefreshBitcoinSpotPriceUseCase(
+                source: BinanceBitcoinSpotPriceSource(httpClient: httpClient),
+                cache: bitcoinSpotPriceCache,
+                staleThreshold: 1_200
+            ),
+            refreshStablecoinSupply: RefreshStablecoinSupplyUseCase(
+                source: DefiLlamaStablecoinSupplySource(httpClient: httpClient),
+                cache: stablecoinSupplyCache,
                 staleThreshold: 43_200
             )
         )
